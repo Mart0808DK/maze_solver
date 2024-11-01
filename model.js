@@ -8,7 +8,6 @@ async function fetchMaze() {
 
 async function createGrid() {
     const mazeInfo = await fetchMaze();
-    console.log(mazeInfo);
     
     const grid = new Grid(mazeInfo.rows, mazeInfo.cols);
     for (let row = 0; row < mazeInfo.maze.length; row++) {

@@ -3,19 +3,11 @@ import { createGrid } from "./model.js";
 import { fetchMaze } from "./model.js";
 window.addEventListener("load", main);
 
-const start = {
-    row: 0,
-    col: 0,
-};
-
-const goal = {
-    row: 5,
-    col: 6,
-};
-
 async function main() {
     const mazeInfo = await fetchMaze();
     const grid = await createGrid();
+    const start = mazeInfo.start;
+    const goal = mazeInfo.goal;
     const path = visitedCell(grid, start, goal);
     console.log("Path:", path);
     document.querySelector("#solveButton").addEventListener("click", () => {
@@ -76,4 +68,4 @@ function displayRute(stack, grid) {
     }
 }
 
-export { displayMaze };
+export { displayMaze, displayRute };
